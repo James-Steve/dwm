@@ -4,6 +4,7 @@
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+<<<<<<< HEAD
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const unsigned int gappih    = 0;//3       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 0;//3       /* vert inner gap between windows */
