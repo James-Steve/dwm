@@ -35,23 +35,19 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "ipscan",   NULL,    NULL,           0,         0,          0,           -1,       -1 },
-	{ "okular",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ "okular_sidebar",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ "okular_sidebar/Sidebar",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ "Okular",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ NULL ,"okular",      NULL,           0,         0,          0,           -1,        -1 },
-	{ "xclock",   NULL,    NULL,           0,         0,          0,           -1,       -1 },
-	{ "nautilus", NULL,    NULL,           0,         0,          0,           -1,        -1 },
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           -1,        -1 },
-	{ "gnome-calendar", NULL, NULL,        0,         0,          0,           -1,       -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "bash",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "st-256color", NULL, NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor   border width */
+	{ "ipscan",   NULL,    NULL,           0,         0,          0,           -1,       -1,        -1},
+	{ "xclock",   NULL,    NULL,           0,         0,          0,           -1,       -1,        -1},
+	{ "nautilus", NULL,    NULL,           0,         0,          0,           -1,       -1,        -1},
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           -1,       -1,        -1 },
+	{ "gnome-calendar", NULL, NULL,        0,         0,          0,           -1,       -1,        -1},
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1,        0},
+	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1,        -1},
+	{ "bash",      NULL,     NULL,           0,       0,          1,           0,        -1,        -1 },
+	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1,        -1 },
+	{ "st-256color", NULL, NULL,           0,         0,          1,           0,        -1,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1,        -1 }, /* xev */
+	/* class      instance    title       tags mask     isfloating   monitor   border width */
 };
 
 /* layout(s) */
