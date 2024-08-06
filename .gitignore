@@ -1,2 +1,5 @@
-*.o
+drw.o
+dwm.o
 dwm
+*.o
+**.o
