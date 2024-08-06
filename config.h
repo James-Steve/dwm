@@ -2,7 +2,8 @@
 
 #include <X11/XF86keysym.h>
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 0;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -52,7 +53,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -127,8 +128,10 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-    { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("brightnessctl -d 'intel_backlight' set +5%")},
-	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("brightnessctl -d 'intel_backlight' set +5%-")},
+    //{ 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("brightnessctl -d 'intel_backlight' set +5%")},
+	//{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("brightnessctl -d 'intel_backlight' set +5%-")},
+    { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("brightnessctl  set +5%")},
+	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("brightnessctl  set +5%-")},
     { 0, XF86XK_AudioMute,		spawn,		SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-; kill -44 $(pidof dwmblocks)") },
