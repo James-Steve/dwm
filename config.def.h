@@ -141,6 +141,10 @@ static const Key keys[] = {
     { ShiftMask, XF86XK_AudioMute, spawn, {.v = medplaypausecmd } },
     { ShiftMask, XF86XK_AudioRaiseVolume, spawn, {.v = mednextcmd } },
     { ShiftMask, XF86XK_AudioLowerVolume, spawn, {.v = medprevcmd } },
+    /* Keybindings for Media play/pause/next/previous */
+    { MODKEY, XF86XK_AudioMute, spawn, {.v = medplaypausecmd } },
+    { MODKEY, XF86XK_AudioRaiseVolume, spawn, {.v = mednextcmd } },
+    { MODKEY, XF86XK_AudioLowerVolume, spawn, {.v = medprevcmd } },
 
 
     // Vanity Gap Control
