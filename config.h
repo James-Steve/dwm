@@ -4,7 +4,7 @@
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int gappih    = 0;//3       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 0;//3       /* vert inner gap between windows */
 static const unsigned int gappoh    = 0;       /* horiz outer gap between windows and screen edge */
@@ -35,23 +35,28 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "ipscan",   NULL,    NULL,           0,         0,          0,           -1,       -1 },
-	{ "okular",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ "okular_sidebar",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ "okular_sidebar/Sidebar",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ "Okular",  NULL,     NULL,           0,         0,          0,           -1,        -1 },
-	{ NULL ,"okular",      NULL,           0,         0,          0,           -1,        -1 },
-	{ "xclock",   NULL,    NULL,           0,         0,          0,           -1,       -1 },
-	{ "nautilus", NULL,    NULL,           0,         0,          0,           -1,        -1 },
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           -1,        -1 },
-	{ "gnome-calendar", NULL, NULL,        0,         0,          0,           -1,       -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "bash",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "st-256color", NULL, NULL,           0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class     instance  title                tags mask  isfloating  isterminal   noswallow    monitor   border width */
+	{ "st",      NULL,     NULL,                    0,          0,          1,           0,        -1,        -1 },
+	{ NULL,      NULL,     "st",                    0,          0,          1,           0,        -1,        -1},
+	{ "St",      NULL,     NULL,                    0,          0,          1,           0,        -1,        -1 },
+	{ "st-256color", NULL, NULL,                    0,          0,          1,           0,        -1,        -1 },
+	{ "nautilus", NULL,    NULL,                    0,          0,          0,           0,       -1,        -1},
+	{ "org.gnome.Nautilus", NULL, NULL,             0,          0,          0,           0,       -1,        -1},
+	{ "Angry IP Scanner",   NULL,    NULL,          0,          0,          0,           0,       -1,        -1},
+	{ "xclock",   NULL,    NULL,                    0,          0,          0,           0,       -1,        -1},
+	{ NULL, "libreoffice",    NULL,                 0,          0,          0,           0,       -1,        -1},
+	{ "Spotify", NULL,    NULL,                     1<<8,       0,          0,           0,       -1,        -1},
+	{ "Gimp",    NULL,     NULL,                    0,          1,          0,           0,       -1,        -1 },
+	{ "gnome-calendar", NULL, NULL,                 0,          0,          0,           0,       -1,        -1},
+	{ "org.matplotlib.Matplotlib", NULL, NULL,      0,          0,          1,           1,       -1,        -1},
+	{ "okular", NULL,     NULL,                     0,          0,          0,           0,        -1,        -1},
+	//{ "Firefox", NULL,     NULL,                    0,          0,          0,           0,        -1,        -1},
+	{ "org.mozilla.firefox", NULL,  NULL,           0,          0,          0,           0,        -1,        -1},
+	//{ NULL, NULL,  "Mozilla Firefox",               0,          0,          0,           0,        -1,        -1},
+	{ "bash",      NULL,     NULL,                  0,          0,          1,           0,        -1,        -1 },
+	{ NULL,      NULL,     "Event Tester",          0,          0,          0,           1,        -1,        -1 }, /* xev */
+	//{ "",                NULL,     NULL,            0,          0,          1,           1,        -1,        -1},
+	/* class      instance    title       tags mask     isfloating   monitor   border width */
 };
 
 /* layout(s) */
@@ -144,6 +149,9 @@ static const Key keys[] = {
     { ShiftMask, XF86XK_AudioMute, spawn, {.v = medplaypausecmd } },
     { ShiftMask, XF86XK_AudioRaiseVolume, spawn, {.v = mednextcmd } },
     { ShiftMask, XF86XK_AudioLowerVolume, spawn, {.v = medprevcmd } },
+    { MODKEY, XF86XK_AudioMute, spawn, {.v = medplaypausecmd } },
+    { MODKEY, XF86XK_AudioRaiseVolume, spawn, {.v = mednextcmd } },
+    { MODKEY, XF86XK_AudioLowerVolume, spawn, {.v = medprevcmd } },
 
 
     // Vanity Gap Control

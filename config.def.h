@@ -44,17 +44,18 @@ static const Rule rules[] = {
 	{ "org.gnome.Nautilus", NULL, NULL,             0,          0,          0,           0,       -1,        -1},
 	{ "Angry IP Scanner",   NULL,    NULL,          0,          0,          0,           0,       -1,        -1},
 	{ "xclock",   NULL,    NULL,                    0,          0,          0,           0,       -1,        -1},
-	{ NULL, "libreoffice",    NULL,                  0,          0,          0,           0,       -1,        -1},
+	{ NULL, "libreoffice",    NULL,                 0,          0,          0,           0,       -1,        -1},
 	{ "Spotify", NULL,    NULL,                     1<<8,       0,          0,           0,       -1,        -1},
 	{ "Gimp",    NULL,     NULL,                    0,          1,          0,           0,       -1,        -1 },
 	{ "gnome-calendar", NULL, NULL,                 0,          0,          0,           0,       -1,        -1},
 	{ "org.matplotlib.Matplotlib", NULL, NULL,      0,          0,          1,           1,       -1,        -1},
-	{ "",                NULL,     NULL,            0,          0,          1,           1,        -1,        -1},
-	{ "Firefox", NULL,     NULL,                    0,          0,          0,           0,        -1,        -1},
 	{ "okular", NULL,     NULL,                     0,          0,          0,           0,        -1,        -1},
+	//{ "Firefox", NULL,     NULL,                    0,          0,          0,           0,        -1,        -1},
 	{ "org.mozilla.firefox", NULL,  NULL,           0,          0,          0,           0,        -1,        -1},
+	//{ NULL, NULL,  "Mozilla Firefox",               0,          0,          0,           0,        -1,        -1},
 	{ "bash",      NULL,     NULL,                  0,          0,          1,           0,        -1,        -1 },
 	{ NULL,      NULL,     "Event Tester",          0,          0,          0,           1,        -1,        -1 }, /* xev */
+	//{ "",                NULL,     NULL,            0,          0,          1,           1,        -1,        -1},
 	/* class      instance    title       tags mask     isfloating   monitor   border width */
 };
 
