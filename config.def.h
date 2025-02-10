@@ -146,6 +146,9 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-; kill -44 $(pidof dwmblocks)") },
 
     /* Keybindings for Media play/pause/next/previous */
+    {0, XF86XK_AudioPlay, spawn, {.v = medplaypausecmd}},
+    { 0, XF86XK_AudioNext, spawn, {.v = mednextcmd } },
+    { 0, XF86XK_AudioPrev, spawn, {.v = medprevcmd } },
     { ShiftMask, XF86XK_AudioMute, spawn, {.v = medplaypausecmd } },
     { ShiftMask, XF86XK_AudioRaiseVolume, spawn, {.v = mednextcmd } },
     { ShiftMask, XF86XK_AudioLowerVolume, spawn, {.v = medprevcmd } },
