@@ -16,6 +16,9 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "MesloLGM Nerd Font Mono:size=12", 
                                           "Noto Color Emoji:pixelsize=14:antialias=true:autohint=true"};
 static const char dmenufont[]       =   "MesloLGM Nerd Font Mono:size=12";
+static const int usealtbar          = 0;        /* 1 means use non-dwm status bar */
+static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
+static const char *altbarcmd        = "$HOME/Documents/Source/Suckless-Software/dwm/bar.sh"; /* Alternate bar launch command */
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -40,11 +43,14 @@ static const Rule rules[] = {
 	{ NULL,      NULL,     "st",                    0,          0,          1,           0,        -1,        -1},
 	{ "St",      NULL,     NULL,                    0,          0,          1,           0,        -1,        -1 },
 	{ "st-256color", NULL, NULL,                    0,          0,          1,           0,        -1,        -1 },
+	{ "kitty", NULL, NULL,                          0,          0,          1,           0,        -1,        -1 },
+	{ NULL, "kitty", NULL,                          0,          0,          1,           0,        -1,        -1 },
 	{ "nautilus", NULL,    NULL,                    0,          0,          0,           0,       -1,        -1},
 	{ "org.gnome.Nautilus", NULL, NULL,             0,          0,          0,           0,       -1,        -1},
 	{ "Angry IP Scanner",   NULL,    NULL,          0,          0,          0,           0,       -1,        -1},
 	{ "xclock",   NULL,    NULL,                    0,          0,          0,           0,       -1,        -1},
 	{ NULL, "libreoffice",    NULL,                 0,          0,          0,           0,       -1,        -1},
+	{ NULL, "libreoffice-calc",    NULL,                 0,          0,          0,           0,       -1,        -1},
 	{ "Spotify", NULL,    NULL,                     1<<8,       0,          0,           0,       -1,        -1},
 	{ "Gimp",    NULL,     NULL,                    0,          1,          0,           0,       -1,        -1 },
 	{ "gnome-calendar", NULL, NULL,                 0,          0,          0,           0,       -1,        -1},
@@ -89,7 +95,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 //static const char *dmenucmd[] = { "dmenu_run",  NULL};
-static const char *termcmd[]  = { "st", NULL };
+//static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char * slockcmd[] = {"slock", NULL};
 
 /* Control Media Players */
@@ -102,8 +109,10 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("umonitor -a") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_s,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_s,  togglescratch,      {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,      SHCMD("flameshot gui")},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
