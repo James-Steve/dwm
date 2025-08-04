@@ -43,6 +43,8 @@ static const Rule rules[] = {
 	{ NULL,      NULL,     "st",                    0,          0,          1,           0,        -1,        -1},
 	{ "St",      NULL,     NULL,                    0,          0,          1,           0,        -1,        -1 },
 	{ "st-256color", NULL, NULL,                    0,          0,          1,           0,        -1,        -1 },
+	{ "Alacritty", NULL, NULL,                          0,          0,          1,           0,        -1,        -1 },
+	{ NULL, "Alacritty", NULL,                          0,          0,          1,           0,        -1,        -1 },
 	{ "kitty", NULL, NULL,                          0,          0,          1,           0,        -1,        -1 },
 	{ NULL, "kitty", NULL,                          0,          0,          1,           0,        -1,        -1 },
 	{ "nautilus", NULL,    NULL,                    0,          0,          0,           0,       -1,        -1},
@@ -96,7 +98,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 //static const char *dmenucmd[] = { "dmenu_run",  NULL};
 //static const char *termcmd[]  = { "st", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+//static const char *termcmd[]  = { "kitty", NULL };
+static const char *oldtermcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char * slockcmd[] = {"slock", NULL};
 
 /* Control Media Players */
@@ -108,6 +112,7 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY|ShiftMask,             XK_t, spawn,          {.v = oldtermcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("umonitor -a") },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
