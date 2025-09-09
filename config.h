@@ -12,6 +12,8 @@ static const unsigned int gappov    = 0;       /* vert outer gap between windows
 static const int smartgaps          = 1;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static unsigned int baralpha        = 90;
+static unsigned int borderalpha     = 90;
 //                                          text font                           emoji font
 static const char *fonts[]          = { "MesloLGM Nerd Font Mono:size=12", 
                                           "Noto Color Emoji:pixelsize=14:antialias=true:autohint=true"};
